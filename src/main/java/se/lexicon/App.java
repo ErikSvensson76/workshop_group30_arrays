@@ -2,6 +2,8 @@ package se.lexicon;
 
 import se.lexicon.data.NamesStorage;
 
+import java.util.Arrays;
+
 /**
  * Hello world!
  *
@@ -10,16 +12,13 @@ public class App
 {
     public static void main( String[] args )
     {
-        boolean added = NamesStorage.add("Erik Svensson");
-        if(added){
-            System.out.println("A name was added");
-        }
-        added = NamesStorage.add("Erik Svensson");
-        if(added){
-            System.out.println("A name was added");
-        }else {
-            System.out.println("Name already exists");
-        }
+        NamesStorage.add("Erik Svensson");
+        NamesStorage.add("Erik Andersson");
+        NamesStorage.add("Martin Svensson");
+
+        String[] eriks = NamesStorage.findByFirstName("marTiN");
+        System.out.println(Arrays.toString(eriks));
+
 
     }
 }
