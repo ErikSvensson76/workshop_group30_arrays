@@ -6,4 +6,11 @@ public class NamesStorage {
 
 
 
+
+    public static void clear(){
+        names = new String[0];
+    }
+
+
+
 }
