@@ -16,8 +16,11 @@ public class App
         NamesStorage.add("Erik Andersson");
         NamesStorage.add("Martin Svensson");
 
-        String[] eriks = NamesStorage.findByLastName("svensson");
-        System.out.println(Arrays.toString(eriks));
+        NamesStorage.remove("Erik Svensson");
+
+        System.out.println(NamesStorage.nameExists("Erik Svensson"));
+
+
 
 
     }

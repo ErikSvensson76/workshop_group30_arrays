@@ -64,6 +64,47 @@ public class NamesStorage {//class starts
         return result;
     }
 
+    public static boolean remove(final String fullName){
+        int index = getIndexOfString(names, fullName);
+        if(index < 0){
+            return false;
+        }
+        names = removeByIndex(names, index);
+        return true;
+    }
+
+    private static String[] removeByIndex(final String[] strings, final int index) {
+        String[]first = Arrays.copyOfRange(strings, 0, index);
+        String[]last = Arrays.copyOfRange(strings, index + 1, strings.length);
+        String[]combined = Arrays.copyOf(first, first.length + last.length);
+        for(int writePos = first.length, readPos=0; readPos<last.length; writePos++, readPos++){
+            combined[writePos] = last[readPos];
+        }
+
+        /*
+        System.arraycopy(
+                last,           //source array
+                0,       //copy from index
+                combined,       //target array
+                first.length,   //starting position in the destination data
+                last.length     //number of elements to copy from last array
+        );
+
+         */
+        return combined;
+    }
+
+    private static int getIndexOfString(String[] strings, String fullName) {
+        int index = -1;
+        for(int i = 0; i<strings.length; i++){
+            if(strings[i].equalsIgnoreCase(fullName)){
+                index = i;
+                break;
+            }
+        }
+        return index;
+    }
+
     private static String[] addStringToArray(final String[] source, final String string) {
         String[] returnArray = Arrays.copyOf(source, source.length+1);
         returnArray[returnArray.length-1] = string;
