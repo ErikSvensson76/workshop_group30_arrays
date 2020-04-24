@@ -53,6 +53,17 @@ public class NamesStorage {//class starts
         return result;
     }
 
+    public static String[] findByLastName(final String lastName){
+        String[] result = new String[0];
+        for(String fullName : names){
+            String extracted = fullName.substring(fullName.indexOf(" ")).trim();
+            if(extracted.equalsIgnoreCase(lastName)){
+                result = addStringToArray(result, fullName);
+            }
+        }
+        return result;
+    }
+
     private static String[] addStringToArray(final String[] source, final String string) {
         String[] returnArray = Arrays.copyOf(source, source.length+1);
         returnArray[returnArray.length-1] = string;
