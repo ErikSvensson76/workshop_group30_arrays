@@ -64,6 +64,7 @@ public class NamesStorage {//class starts
         return result;
     }
 
+
     public static boolean remove(final String fullName){
         int index = getIndexOfString(names, fullName);
         if(index < 0){
